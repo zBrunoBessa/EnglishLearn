@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './DayPhrases.css'
-
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
+import config from '../config'
 
 function DayPhrases() {
   const [phrases, setPhrases] = useState([])
@@ -23,7 +22,7 @@ function DayPhrases() {
       setLoading(true)
       setError(null)
       
-      const response = await fetch(`${API_URL}/phrases/daily`)
+      const response = await fetch(`${config.API_URL}${config.endpoints.phrases}`)
       
       if (!response.ok) {
         throw new Error('Failed to fetch phrases')
@@ -32,8 +31,7 @@ function DayPhrases() {
       const data = await response.json()
       
       if (data.phrases && data.phrases.length > 0) {
-        // Convert database format to component format
-        const formattedPhrases = data.phrases.map((phrase, index) => ({
+        const formattedPhrases = data.phrases.map((phrase) => ({
           id: phrase.id,
           question: phrase.english,
           correct_answer: phrase.portuguese,
@@ -41,7 +39,6 @@ function DayPhrases() {
         }))
         setPhrases(formattedPhrases)
       } else {
-        // Use fallback phrases if no data from API
         setPhrases(phrases_old)
       }
     } catch (err) {
@@ -210,7 +207,6 @@ function DayPhrases() {
     const userAnswer = userAnswers[phraseId] || ''
     const isConfirming = confirmingPhrases[phraseId] || false
     
-    // Se está no estado "Tem certeza?", mostra a resposta
     if (isConfirming) {
       setShowAnswers({
         ...showAnswers,
@@ -219,33 +215,12 @@ function DayPhrases() {
       if (!completedPhrases.includes(phraseId)) {
         setCompletedPhrases([...completedPhrases, phraseId])
       }
-      // Remove do estado de confirmação
       const newConfirming = { ...confirmingPhrases }
       delete newConfirming[phraseId]
       setConfirmingPhrases(newConfirming)
-      
-      // Save progress to backend (optional)
-      try {
-        const phrase = phrases.find(p => p.id === phraseId)
-        if (phrase) {
-          await fetch(`${API_URL}/phrases/progress`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              phrase_id: phraseId,
-              user_answer: userAnswer,
-              is_correct: userAnswer.trim().toLowerCase() === phrase.correct_answer.toLowerCase()
-            })
-          })
-        }
-      } catch (err) {
-        console.error('Error saving progress:', err)
-      }
-      
       return
     }
     
-    // Se tem resposta, mostra direto
     if (userAnswer.trim()) {
       setShowAnswers({
         ...showAnswers,
@@ -254,26 +229,7 @@ function DayPhrases() {
       if (!completedPhrases.includes(phraseId)) {
         setCompletedPhrases([...completedPhrases, phraseId])
       }
-      
-      // Save progress to backend (optional)
-      try {
-        const phrase = phrases.find(p => p.id === phraseId)
-        if (phrase) {
-          await fetch(`${API_URL}/phrases/progress`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              phrase_id: phraseId,
-              user_answer: userAnswer,
-              is_correct: userAnswer.trim().toLowerCase() === phrase.correct_answer.toLowerCase()
-            })
-          })
-        }
-      } catch (err) {
-        console.error('Error saving progress:', err)
-      }
     } else {
-      // Se não tem resposta, muda o texto para "Tem certeza?"
       setConfirmingPhrases({
         ...confirmingPhrases,
         [phraseId]: true

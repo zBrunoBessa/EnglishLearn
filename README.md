@@ -1,56 +1,58 @@
 # EnglishToday 🇬🇧
 
-Uma aplicação moderna para aprendizado de inglês com frases diárias.
+Uma aplicação serverless para aprendizado de inglês com frases diárias geradas automaticamente.
 
 ## 📋 Descrição
 
-EnglishToday é uma plataforma de aprendizado de inglês que oferece 20 frases diárias para prática. O projeto utiliza uma arquitetura simples com frontend React e backend Express + SQLite.
+EnglishToday é uma plataforma de aprendizado de inglês que oferece 20 frases diárias para prática. O projeto utiliza arquitetura serverless AWS com Amplify, Lambda, DynamoDB e EventBridge.
 
-## 🏗️ Arquitetura
+## 🏗️ Arquitetura Serverless
 
 ### Frontend
 - React 18 com Vite
-- React Router para navegação
+- Amplify Hosting (CDN Global)
 - Design responsivo com tema claro/escuro
-- PWA-ready para uso offline
+- PWA-ready
 
 ### Backend
-- **Express.js**: Servidor Node.js
-- **SQLite**: Banco de dados local
-- **Better-SQLite3**: Driver rápido para SQLite
-- **CORS**: Configurado para desenvolvimento
+- **Lambda**: 2 funções serverless
+  - `generateDailyPhrases`: Gera 20 frases diárias
+  - `getDailyPhrases`: Retorna frases do dia
+- **DynamoDB**: Armazenamento NoSQL
+- **API Gateway**: REST API pública
+- **EventBridge**: Scheduler diário (00:00 UTC)
 
-### Deploy
-- **EC2**: Instância AWS
-- **PM2**: Gerenciamento de processos
-- **Nginx**: Proxy reverso e servidor estático
+### Fluxo de Dados
+```
+EventBridge (00:00 UTC)
+    ↓
+Lambda: generateDailyPhrases
+    ↓
+DynamoDB (20 frases/dia)
+    ↑
+Lambda: getDailyPhrases
+    ↑
+API Gateway
+    ↑
+Amplify Frontend
+```
 
 ## 📁 Estrutura do Projeto
 
 ```
 englishtoday/
-├── frontend/              # Aplicação React (Vite)
-│   ├── src/
-│   │   ├── components/   # Componentes reutilizáveis
-│   │   ├── pages/        # Páginas da aplicação
-│   │   ├── context/      # Context API
-│   │   └── ...
-│   └── package.json
+├── src/                   # Frontend React
+│   ├── components/       # Componentes reutilizáveis
+│   ├── pages/            # Páginas da aplicação
+│   ├── context/          # Context API
+│   └── config.js         # Configuração da API
 │
-├── backend/              # Servidor Express
-│   ├── database/         # Configuração SQLite
-│   ├── routes/           # Rotas da API
-│   ├── data/            # Banco SQLite
-│   ├── server.js        # Servidor principal
-│   └── seed.js          # Popular banco com dados
-│
-├── deploy.sh            # Script de deploy EC2
-└── ecosystem.config.js  # Configuração PM2
+├── AWS_MANUAL_SETUP.md   # Guia de deploy manual
+├── package.json
+└── vite.config.js
 ```
 
 ## 🚀 Funcionalidades
-
-### ✨ Implementadas
 
 - ✅ 20 frases diárias de prática
 - ✅ Sistema de verificação de respostas
@@ -59,9 +61,9 @@ englishtoday/
 - ✅ Teste de nível de inglês
 - ✅ Tema claro/escuro
 - ✅ Modal de conclusão e gamificação
-- ✅ Backend Express com SQLite
-- ✅ API REST para frases
-- ✅ Script de deploy para EC2
+- ✅ Geração automática diária (EventBridge)
+- ✅ API REST serverless
+- ✅ Deploy Amplify
 
 ## 🛠️ Tecnologias
 
@@ -71,18 +73,17 @@ englishtoday/
 - Vite
 - CSS Modules
 
-### Backend
-- Node.js (ES Modules)
-- Express.js
-- SQLite + Better-SQLite3
-- CORS
+### Backend (Serverless)
+- AWS Lambda (Python 3.12)
+- DynamoDB
+- API Gateway
+- EventBridge Scheduler
 
 ### Deploy
-- PM2 (Process Manager)
-- Nginx (Reverse Proxy)
-- EC2 (AWS)
+- AWS Amplify Hosting
+- CI/CD automático
 
-## 📦 Instalação Local
+## 📦 Desenvolvimento Local
 
 ### Pré-requisitos
 - Node.js 18+
@@ -90,101 +91,86 @@ englishtoday/
 
 ### Setup
 
-1. **Clone o repositório**
 ```bash
+# Clone o repositório
 git clone <url-do-repositorio>
 cd englishtoday
-```
 
-2. **Instale dependências do backend**
-```bash
-cd backend
+# Instale dependências
 npm install
-```
 
-3. **Popular banco com dados de exemplo**
-```bash
-npm run seed
-```
-
-4. **Instale dependências do frontend**
-```bash
-cd ..
-npm install
-```
-
-5. **Execute localmente**
-```bash
-# Terminal 1 - Backend
-cd backend
-npm start
-
-# Terminal 2 - Frontend
+# Execute localmente
 npm run dev
 ```
 
-## 🚀 Deploy na EC2
+## 🚀 Deploy
 
-### Pré-requisitos
-- Instância EC2 Ubuntu
-- Acesso SSH à instância
-- Repositório Git configurado
+### Frontend no Amplify
 
-### Deploy Automático
-
-1. **Faça upload do script**
+1. **Build do projeto**
 ```bash
-scp deploy.sh ubuntu@YOUR_EC2_IP:~/
+npm run build
 ```
 
-2. **Execute o deploy**
-```bash
-ssh ubuntu@YOUR_EC2_IP
-chmod +x deploy.sh
-./deploy.sh
+2. **Deploy no Amplify Console**
+- Acesse: https://console.aws.amazon.com/amplify
+- Conecte seu repositório GitHub ou faça upload da pasta `dist/`
+- Configure build: `npm run build`
+- Output directory: `dist`
+
+3. **Acesse sua aplicação**
+- URL: Fornecida pelo Amplify após deploy
+
+## 📊 Arquitetura AWS
+
+### API Gateway
+```
+URL: https://90f4l1q0jb.execute-api.us-east-2.amazonaws.com
+Endpoint: /dailyphrases
+Method: GET
+Response: { "phrases": [...], "date": "2026-01-09" }
 ```
 
-3. **Acesse a aplicação**
-- Frontend: `http://YOUR_EC2_IP`
-- API: `http://YOUR_EC2_IP/api/health`
+### DynamoDB Table: EnglishPhrases
+```
+Partition Key: date (String)
+Sort Key: id (Number)
 
-### Gerenciamento
-```bash
-# Status dos processos
-pm2 status
-
-# Logs do backend
-pm2 logs englishtoday-backend
-
-# Reiniciar backend
-pm2 restart englishtoday-backend
-
-# Status do Nginx
-sudo systemctl status nginx
+Attributes:
+- english (String)
+- portuguese (String)
+- createdAt (String)
 ```
 
-## 📊 API Endpoints
+### Lambda Functions
+- **generateDailyPhrases**: Gera 20 frases diárias (Python 3.12)
+- **getDailyPhrases**: Retorna frases do dia (Python 3.12)
 
-### GET /api/health
-- **Descrição**: Verifica status do servidor
-- **Resposta**: `{ "status": "OK", "timestamp": "..." }`
+### EventBridge
+- **Trigger**: Diariamente às 00:00 UTC
+- **Target**: Lambda generateDailyPhrases
 
-### GET /api/phrases/daily
-- **Descrição**: Retorna frases do dia atual
-- **Resposta**: `{ "phrases": [...] }`
+## 📊 Custo Estimado (AWS Serverless)
 
-### POST /api/phrases/daily
-- **Descrição**: Adiciona frases para uma data
-- **Body**: `{ "phrases": [...], "date": "YYYY-MM-DD" }`
-- **Resposta**: `{ "success": true, "message": "..." }`
+### Free Tier (12 meses)
+- Lambda: 1M requests/mês grátis
+- DynamoDB: 25 GB storage grátis
+- API Gateway: 1M requests/mês grátis
+- Amplify: 1000 build minutes grátis
 
-## 📊 Custo Estimado (EC2)
+### Após Free Tier (uso real do projeto)
+- Lambda: **$0.00**/mês (30 execuções/mês)
+- DynamoDB: **$0.25**/mês (600 writes + reads)
+- API Gateway: **$0.35**/mês (~1k requests)
+- Amplify Hosting: **$0-2**/mês
+- EventBridge: **$0.00**/mês (30 triggers)
 
-Com instância t3.micro:
-- EC2 t3.micro: ~$8.50/mês
-- Armazenamento EBS: ~$1/mês
-- Transferência de dados: ~$1/mês
-- **Total estimado: ~$10.50/mês**
+**Total: ~$0.60-2.60/mês** 🎉
+
+### Comparação com EC2
+- EC2 t3.micro: $10.50/mês
+- Serverless: $0.60-2.60/mês
+- **Economia: 75-95%**
 
 ## 🤝 Contribuindo
 
@@ -199,13 +185,16 @@ Contribuições são bem-vindas! Por favor:
 ## 📝 Roadmap
 
 - [x] Fase 1: Estrutura frontend completa
-- [x] Fase 2: Backend Express + SQLite
-- [x] Fase 3: API REST funcional
-- [x] Fase 4: Script de deploy EC2
-- [ ] Fase 5: Autenticação de usuários
-- [ ] Fase 6: Analytics e dashboard
-- [ ] Fase 7: Geração de frases com IA
+- [x] Fase 2: Backend serverless (Lambda + DynamoDB)
+- [x] Fase 3: API Gateway configurada
+- [x] Fase 4: EventBridge scheduler
+- [x] Fase 5: Deploy em produção
+- [ ] Fase 6: Autenticação de usuários (Cognito)
+- [ ] Fase 7: Analytics e dashboard
+- [ ] Fase 8: Geração de frases com IA
 
 ---
 
-**Status**: 🔄 Pronto para deploy na EC2
+**Status**: ✅ Em produção
+
+**API**: https://90f4l1q0jb.execute-api.us-east-2.amazonaws.com/dailyphrases

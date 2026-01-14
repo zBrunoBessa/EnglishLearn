@@ -30,148 +30,24 @@ function DayPhrases() {
       
       const data = await response.json()
       
-      if (data.phrases && data.phrases.length > 0) {
-        const formattedPhrases = data.phrases.map((phrase) => ({
-          id: phrase.id,
-          question: phrase.english,
-          correct_answer: phrase.portuguese,
-          explanation: `Tradução: ${phrase.portuguese}`
+      if (data && Array.isArray(data) && data.length > 0) {
+        const formattedPhrases = data.map((phrase, index) => ({
+          id: phrase.QuestionID || `Q-${index + 1}`,
+          question: phrase.enSentence,
+          correct_answer: phrase.ptSentence,
+          explanation: `${phrase.grammarExplanation || ''} (${phrase.verbTense || ''} - Nível ${phrase.level || ''})`
         }))
         setPhrases(formattedPhrases)
       } else {
-        setPhrases(phrases_old)
+        throw new Error('No phrases found')
       }
     } catch (err) {
       console.error('Error fetching phrases:', err)
-      setError('Não foi possível carregar as frases. Usando frases locais.')
-      setPhrases(phrases_old)
+      setError('Não foi possível carregar as frases do servidor.')
     } finally {
       setLoading(false)
     }
   }
-
-  const phrases_old = [
-    {
-      id: 1,
-      question: "How would you do?",
-      correctAnswer: "How would you do it?",
-      explanation: "Esta frase pergunta como você faria algo. É uma forma de pedir uma explicação sobre um método ou processo."
-    },
-    {
-      id: 2,
-      question: "What's your name?",
-      correctAnswer: "My name is [seu nome]",
-      explanation: "Resposta padrão quando alguém pergunta seu nome. Você pode substituir [seu nome] pelo seu nome real."
-    },
-    {
-      id: 3,
-      question: "How are you?",
-      correctAnswer: "I'm fine, thank you. And you?",
-      explanation: "Resposta educada e comum para a pergunta 'Como você está?'. Você também pode responder 'I'm good' ou 'I'm doing well'."
-    },
-    {
-      id: 4,
-      question: "Where are you from?",
-      correctAnswer: "I'm from [país/cidade]",
-      explanation: "Use esta estrutura para dizer de onde você é. Exemplo: 'I'm from Brazil' ou 'I'm from São Paulo'."
-    },
-    {
-      id: 5,
-      question: "What do you do?",
-      correctAnswer: "I'm a [profissão] / I work as a [profissão]",
-      explanation: "Resposta para perguntar sobre sua profissão. Exemplo: 'I'm a teacher' ou 'I work as an engineer'."
-    },
-    {
-      id: 6,
-      question: "Can you help me?",
-      correctAnswer: "Of course! / Sure! / I'd be happy to help.",
-      explanation: "Respostas positivas para quando alguém pede ajuda. Todas são educadas e comuns."
-    },
-    {
-      id: 7,
-      question: "What time is it?",
-      correctAnswer: "It's [hora]",
-      explanation: "Forma de dizer as horas. Exemplo: 'It's 3 o'clock' ou 'It's half past two'."
-    },
-    {
-      id: 8,
-      question: "How much does it cost?",
-      correctAnswer: "It costs [preço]",
-      explanation: "Resposta para informar o preço de algo. Exemplo: 'It costs $10' ou 'It costs 50 dollars'."
-    },
-    {
-      id: 9,
-      question: "Where is the bathroom?",
-      correctAnswer: "It's over there / It's on the left / It's on the right",
-      explanation: "Respostas comuns para indicar a localização do banheiro. Use gestos para ajudar."
-    },
-    {
-      id: 10,
-      question: "Do you speak English?",
-      correctAnswer: "Yes, I do. / Yes, a little. / No, I don't.",
-      explanation: "Respostas honestas sobre sua habilidade em inglês. Seja sincero sobre seu nível."
-    },
-    {
-      id: 11,
-      question: "What's the weather like?",
-      correctAnswer: "It's sunny / It's raining / It's cold / It's hot",
-      explanation: "Formas de descrever o clima. Use adjetivos simples para descrever as condições."
-    },
-    {
-      id: 12,
-      question: "How do you spell that?",
-      correctAnswer: "It's spelled [letras]",
-      explanation: "Quando alguém pede para soletrar, diga as letras uma por uma. Exemplo: 'It's spelled C-A-T'."
-    },
-    {
-      id: 13,
-      question: "What's your phone number?",
-      correctAnswer: "My phone number is [número]",
-      explanation: "Forma de dar seu número de telefone. Diga os números um por um ou em grupos."
-    },
-    {
-      id: 14,
-      question: "Nice to meet you!",
-      correctAnswer: "Nice to meet you too!",
-      explanation: "Resposta educada quando alguém diz 'prazer em conhecê-lo'. O 'too' significa 'também'."
-    },
-    {
-      id: 15,
-      question: "I'm sorry.",
-      correctAnswer: "That's okay. / No problem. / Don't worry about it.",
-      explanation: "Respostas educadas quando alguém se desculpa. Todas são aceitáveis e comuns."
-    },
-    {
-      id: 16,
-      question: "Excuse me.",
-      correctAnswer: "Yes? / How can I help you?",
-      explanation: "Respostas quando alguém diz 'com licença' para chamar sua atenção."
-    },
-    {
-      id: 17,
-      question: "Thank you very much!",
-      correctAnswer: "You're welcome! / My pleasure! / Don't mention it!",
-      explanation: "Respostas educadas para 'obrigado'. Todas são apropriadas e comuns."
-    },
-    {
-      id: 18,
-      question: "See you later!",
-      correctAnswer: "See you! / See you soon! / Bye!",
-      explanation: "Formas de se despedir quando alguém diz 'até logo'. Todas são informais e amigáveis."
-    },
-    {
-      id: 19,
-      question: "What's this?",
-      correctAnswer: "It's a [objeto] / This is a [objeto]",
-      explanation: "Resposta para identificar um objeto. Use 'a' antes de substantivos que começam com consoante, 'an' antes de vogais."
-    },
-    {
-      id: 20,
-      question: "I don't understand.",
-      correctAnswer: "Let me explain. / Can you repeat that? / I'll help you.",
-      explanation: "Respostas úteis quando alguém diz que não entendeu. Ofereça ajuda ou peça para repetir."
-    }
-  ]
 
   // Carregar progresso salvo
   useEffect(() => {

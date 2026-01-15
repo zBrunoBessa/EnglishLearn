@@ -9,7 +9,7 @@ function Home() {
         <div className="home-content">
           <h1 className="home-title">Todo dia 20 novas frases para você praticar</h1>
           <p className="home-subtitle">
-            Pratique inglês todos os dias com frases selecionadas especialmente para você
+            Praticando 20 frases por dia, em 3 meses você terá dominado mais de 1800 estruturas — o suficiente para se sentir confiante no inglês.
           </p>
           <Link to="/day-phrases" className="btn-primary btn-large">
             Começar Agora

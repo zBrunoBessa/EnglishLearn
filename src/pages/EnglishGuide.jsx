@@ -8,167 +8,238 @@ function EnglishGuide() {
         <div className="guide-content">
           <h1 className="page-title">English Guide</h1>
           <p className="page-subtitle">
-            Um guia prático: entenda como o aprendizado funciona, siga um plano em etapas e use as ferramentas certas.
+            Guia direto ao ponto: fundamentos → etapas → níveis → curva → ferramentas.
           </p>
 
           <section id="sumario" className="info-section">
             <h2 className="section-title">🧭 Sumário (clique para ir direto)</h2>
             <div className="info-card toc-card">
               <p className="toc-intro">
-                Aqui está o “mapa” do seu estudo. Leia o resumo e execute as etapas; os tópicos abaixo servem para aprofundar.
+                Aqui está o “mapa” do seu estudo. Siga na ordem para evoluir sem se perder.
               </p>
 
               <div className="toc-grid">
                 <a className="toc-link" href="#como-funciona">
-                  <div className="toc-title">Como o aprendizado funciona (resumo)</div>
-                  <div className="toc-desc">Core vocabulário + Anki + imersão com suporte (Language Reactor).</div>
+                  <div className="toc-title">Fundamentos do aprendizado</div>
+                  <div className="toc-desc">Exposição + core vocabulário + revisão + uso.</div>
                 </a>
                 <a className="toc-link" href="#etapas">
-                  <div className="toc-title">Etapas (plano bem definido)</div>
-                  <div className="toc-desc">O que fazer no começo e como evoluir sem se perder.</div>
+                  <div className="toc-title">Plano gradual (A1 → C1)</div>
+                  <div className="toc-desc">O que fazer em cada fase.</div>
                 </a>
                 <a className="toc-link" href="#anki">
-                  <div className="toc-title">Anki (repetição espaçada)</div>
-                  <div className="toc-desc">Como criar cards e revisar do jeito certo.</div>
+                  <div className="toc-title">Revisão espaçada (Anki)</div>
+                  <div className="toc-desc">Como revisar sem perder tempo.</div>
                 </a>
                 <a className="toc-link" href="#vocabulario">
-                  <div className="toc-title">Core vocabulário</div>
-                  <div className="toc-desc">Prioridade por frequência (100 → 500 → 1000 palavras).</div>
-                </a>
-                <a className="toc-link" href="#language-reactor">
-                  <div className="toc-title">Language Reactor e extensões</div>
-                  <div className="toc-desc">Imersão guiada: legendas, repetição e dicionário.</div>
+                  <div className="toc-title">Core vocabulário e níveis</div>
+                  <div className="toc-desc">Quantas palavras e o que esperar.</div>
                 </a>
                 <a className="toc-link" href="#imersao">
-                  <div className="toc-title">Horas de imersão</div>
-                  <div className="toc-desc">Quanto tempo e como distribuir no dia.</div>
+                  <div className="toc-title">Exposição e horas necessárias</div>
+                  <div className="toc-desc">Tempo médio para A1–C2.</div>
                 </a>
-                <a className="toc-link" href="#erros-comuns">
-                  <div className="toc-title">Erros comuns</div>
-                  <div className="toc-desc">O que trava iniciantes e como destravar rápido.</div>
-                </a>
-                <a className="toc-link" href="#estrategias">
-                  <div className="toc-title">Estratégias eficazes</div>
-                  <div className="toc-desc">Active recall, spaced repetition, interleaving, output.</div>
+                <a className="toc-link" href="#curva">
+                  <div className="toc-title">Curva de aprendizado</div>
+                  <div className="toc-desc">Início rápido → platô → fluência.</div>
                 </a>
                 <a className="toc-link" href="#recursos">
-                  <div className="toc-title">Recursos recomendados</div>
-                  <div className="toc-desc">Podcasts, LingQ, HelloTalk/Tandem, YouTube.</div>
+                  <div className="toc-title">Ferramentas úteis (com links)</div>
+                  <div className="toc-desc">Anki, Language Reactor, podcasts, troca de conversas.</div>
                 </a>
+              </div>
+            </div>
+          </section>
+
+          <section id="resumo" className="info-section">
+            <h2 className="section-title">🚀 Resumo: como aprender inglês de verdade</h2>
+            <div className="info-card summary-card">
+              <p className="summary-intro">
+                Leia isso antes de qualquer coisa. Aqui está o método completo, passo a passo.
+              </p>
+
+              <div className="summary-step">
+                <div className="summary-step-number">1</div>
+                <div className="summary-step-content">
+                  <h4>Foque no vocabulário mais frequente (core vocabulary)</h4>
+                  <p>
+                    As <strong>1000 palavras mais usadas</strong> cobrem cerca de 80% do que você ouve e lê no dia a dia.
+                    Comece por elas. Não perca tempo com palavras raras no início.
+                  </p>
+                  <ul className="info-list">
+                    <li><strong>Top 100:</strong> base de quase tudo (the, be, to, have, I, you, it, that…).</li>
+                    <li><strong>101–500:</strong> destrava conversas simples e vídeos fáceis.</li>
+                    <li><strong>501–1000:</strong> consolida leitura e escuta do dia a dia.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="summary-step">
+                <div className="summary-step-number">2</div>
+                <div className="summary-step-content">
+                  <h4>Use o Anki para não esquecer</h4>
+                  <p>
+                    O <strong>Anki</strong> é um app de flashcards que usa <em>repetição espaçada</em>: ele mostra cada card
+                    exatamente quando você está prestes a esquecer. Isso fixa o vocabulário com menos tempo de estudo.
+                  </p>
+                  <ul className="info-list">
+                    <li><strong>O que colocar:</strong> frases curtas com contexto (não só palavras soltas).</li>
+                    <li><strong>De onde tirar:</strong> do que você assistiu ou leu — cria "memória real".</li>
+                    <li><strong>Quanto:</strong> 10–20 novos cards/dia + revisar todo dia (~10–15 min).</li>
+                  </ul>
+                  <p className="summary-link">
+                    👉 <a href="https://apps.ankiweb.net/" target="_blank" rel="noreferrer">Baixe o Anki aqui (apps.ankiweb.net)</a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="summary-step">
+                <div className="summary-step-number">3</div>
+                <div className="summary-step-content">
+                  <h4>Faça imersão com suporte (exposição compreensível)</h4>
+                  <p>
+                    Você precisa de <strong>exposição diária</strong> ao idioma. No começo, imersão "pura" frustra.
+                    O ideal é entender 70–90% do que você consome. Use ferramentas de suporte.
+                  </p>
+                  <ul className="info-list">
+                    <li><strong>Tempo mínimo:</strong> 30–60 min/dia de vídeos, séries ou podcasts em inglês.</li>
+                    <li><strong>Regra:</strong> se não entende quase nada, o conteúdo está difícil demais.</li>
+                    <li><strong>Capture:</strong> 5–10 frases úteis por sessão e leve para o Anki.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="summary-step">
+                <div className="summary-step-number">4</div>
+                <div className="summary-step-content">
+                  <h4>Use o Language Reactor para estudar assistindo</h4>
+                  <p>
+                    O <strong>Language Reactor</strong> é uma extensão de navegador que transforma Netflix e YouTube
+                    em ferramentas de estudo. Ele oferece legendas duplas, dicionário instantâneo e repetição de frases.
+                  </p>
+                  <ul className="info-list">
+                    <li><strong>Legendas duplas:</strong> inglês + português ao mesmo tempo.</li>
+                    <li><strong>Clique em palavras:</strong> veja tradução e ouça pronúncia.</li>
+                    <li><strong>Repita frases:</strong> treine listening e capture vocabulário.</li>
+                  </ul>
+                  <p className="summary-link">
+                    👉 <a href="https://www.languagereactor.com/" target="_blank" rel="noreferrer">Instale o Language Reactor (languagereactor.com)</a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="summary-step">
+                <div className="summary-step-number">5</div>
+                <div className="summary-step-content">
+                  <h4>Saiba quanto tempo leva (expectativas práticas)</h4>
+                  <p>
+                    Aprender inglês leva tempo. Estimativas realistas para quem estuda com consistência:
+                  </p>
+                  <ul className="info-list">
+                    <li><strong>A2 (básico funcional):</strong> 3–6 meses com 1h/dia</li>
+                    <li><strong>B1 (conversação):</strong> 6–12 meses com 1h/dia</li>
+                    <li><strong>B2 (fluência prática):</strong> 1–2 anos com 1h/dia</li>
+                    <li><strong>C1 (avançado):</strong> 2–3+ anos com exposição constante</li>
+                  </ul>
+                  <p>
+                    Dobrando o tempo diário, você reduz o prazo pela metade. A chave é <strong>não parar</strong>.
+                  </p>
+                </div>
+              </div>
+
+              <div className="tip-box summary-tip">
+                <strong>✅ Rotina mínima (45 min/dia):</strong><br />
+                10 min Anki + 20 min vídeo com Language Reactor + 15 min escrever/falar usando o vocabulário do dia.
               </div>
             </div>
           </section>
 
           <section id="como-funciona" className="info-section">
-            <h2 className="section-title">🧠 Como o aprendizado de inglês funciona (resumo completo)</h2>
+            <h2 className="section-title">🧠 Fundamentos: o que realmente faz você aprender</h2>
             <div className="info-card">
-              <h3>Se você entender isso, o resto vira detalhe</h3>
+              <h3>Sem isso, o progresso trava</h3>
               <p>
-                Você aprende inglês quando expõe o cérebro ao idioma em contexto, revisa o que tende a esquecer e usa o
-                idioma de forma ativa. O “atalho” é focar no que mais aparece: <strong>core vocabulário</strong>.
+                Você aprende quando combina <strong>exposição compreensível</strong>, <strong>revisão inteligente</strong> e
+                <strong> uso ativo</strong>. O atalho é focar no <strong>core vocabulário</strong>.
               </p>
 
               <div className="highlight-box">
-                <h4>O caminho é: entender → lembrar → usar</h4>
+                <h4>1) Exposição (input) diária</h4>
                 <ul className="info-list">
-                  <li><strong>Input (entender):</strong> assistir/ler coisas compreensíveis com repetição.</li>
-                  <li><strong>Memória (lembrar):</strong> revisão espaçada (ex: <a href="#anki">Anki</a>) para fixar palavras e padrões.</li>
-                  <li><strong>Output (usar):</strong> falar/escrever para transformar conhecimento em habilidade.</li>
+                  <li><strong>Objetivo:</strong> entender 70–90% do conteúdo.</li>
+                  <li><strong>Como:</strong> vídeos/textos com legenda em inglês + pausas para anotar.</li>
+                  <li><strong>Regra prática:</strong> 20–40 min/dia de conteúdo compreensível.</li>
                 </ul>
               </div>
 
               <div className="highlight-box">
-                <h4>Core vocabulário: o que estudar primeiro</h4>
-                <p>
-                  As palavras mais frequentes aparecem o tempo todo. Quando você domina as primeiras 500–1000 palavras,
-                  sua compreensão sobe muito porque você começa a reconhecer estruturas automaticamente.
-                </p>
+                <h4>2) Core vocabulário (frequência)</h4>
                 <ul className="info-list">
-                  <li><strong>Top 100:</strong> base para grande parte do que você vê/ouve no dia a dia.</li>
-                  <li><strong>101–500:</strong> destrava conversas simples e entendimento de vídeos fáceis.</li>
-                  <li><strong>501–1000:</strong> consolida leitura/escuta e reduz travas.</li>
+                  <li><strong>Top 100:</strong> base de quase tudo que você vê/ouve.</li>
+                  <li><strong>500–1000 palavras:</strong> destravam conversas simples.</li>
+                  <li><strong>2000+ palavras:</strong> autonomia real no dia a dia.</li>
                 </ul>
                 <p>
-                  Quer aprofundar? Vá em <a href="#vocabulario">Core Vocabulário</a>.
+                  Detalhe por nível em <a href="#vocabulario">Core Vocabulário</a>.
                 </p>
               </div>
 
               <div className="highlight-box">
-                <h4>Como o Anki ajuda nisso</h4>
-                <p>
-                  Você esquece palavras novas rapidamente. O Anki resolve isso: ele te mostra o card no momento certo,
-                  para fixar com menos tempo de estudo.
-                </p>
+                <h4>3) Revisão + uso</h4>
                 <ul className="info-list">
-                  <li><strong>O que colocar:</strong> frases curtas + contexto (não só tradução).</li>
-                  <li><strong>De onde tirar:</strong> do que você consumiu (vídeos/textos) — isso cria “memória real”.</li>
-                  <li><strong>Quanto:</strong> 10–20 novos cards/dia + revisar diariamente.</li>
+                  <li><strong>Revisão:</strong> Anki fixa palavras no momento certo.</li>
+                  <li><strong>Output:</strong> 5–10 frases por dia usando o que você viu.</li>
                 </ul>
                 <p>
-                  Quer aprofundar? Vá em <a href="#anki">Anki</a>.
+                  Veja <a href="#anki">Repetição espaçada</a>.
                 </p>
-              </div>
-
-              <div className="highlight-box">
-                <h4>Imersão no começo (sem travar): use suporte</h4>
-                <p>
-                  No início, imersão “pura” pode ser frustrante. O ideal é imersão com suporte: entender o suficiente para aprender.
-                </p>
-                <ul className="info-list">
-                  <li>
-                    <strong>Language Reactor:</strong> legendas duplas, pausa, dicionário e repetição de frases para estudar sem se perder.
-                    (ver <a href="#language-reactor">Language Reactor</a>)
-                  </li>
-                  <li><strong>Regra prática:</strong> capture 5–10 frases úteis por sessão e leve para o Anki.</li>
-                  <li><strong>Fechamento:</strong> escreva 5 frases usando o vocabulário do dia.</li>
-                </ul>
               </div>
 
               <div className="tip-box">
-                <strong>✅ Quick Start (7 dias):</strong> 10 min Anki + 20 min vídeo com suporte (Language Reactor) + 10 min escrever 5 frases.
+                <strong>✅ Rotina mínima:</strong> 10 min Anki + 20 min input + 10 min escrever 5 frases.
               </div>
             </div>
           </section>
 
           <section id="etapas" className="info-section">
-            <h2 className="section-title">🪜 Etapas (plano bem definido)</h2>
+            <h2 className="section-title">🪜 Plano gradual (A1 → C1)</h2>
             <div className="info-card">
-              <h3>Faça em etapas. Evita confusão e acelera o progresso.</h3>
+              <h3>Faça em etapas para não travar</h3>
 
               <div className="steps-grid">
                 <div className="step-card">
                   <div className="step-number">1</div>
                   <div className="step-body">
-                    <h4>Base (A1 → A2)</h4>
+                    <h4>A1 (Base)</h4>
                     <p>Frases prontas + core vocabulário + hábito diário.</p>
-                    <p className="step-meta"><strong>Meta:</strong> 300–500 palavras + 20–40 frases úteis.</p>
+                    <p className="step-meta"><strong>Meta:</strong> 300–700 palavras + 30 frases úteis.</p>
                   </div>
                 </div>
 
                 <div className="step-card">
                   <div className="step-number">2</div>
                   <div className="step-body">
-                    <h4>Consolidação (A2 → B1)</h4>
-                    <p>Mais input com suporte + cards melhores + output leve.</p>
-                    <p className="step-meta"><strong>Meta:</strong> escrever 5–10 linhas/dia e falar 2–3x/semana (mesmo que pouco).</p>
+                    <h4>A2 → B1 (Consolidação)</h4>
+                    <p>Mais input com suporte + revisão diária + output leve.</p>
+                    <p className="step-meta"><strong>Meta:</strong> 5–10 linhas/dia e falar 2–3x/semana.</p>
                   </div>
                 </div>
 
                 <div className="step-card">
                   <div className="step-number">3</div>
                   <div className="step-body">
-                    <h4>Fluidez (B1 → B2)</h4>
+                    <h4>B1 → B2 (Fluidez)</h4>
                     <p>Aumentar output e reduzir dependência do português.</p>
-                    <p className="step-meta"><strong>Meta:</strong> conversação semanal + rotina de correção dos erros mais comuns.</p>
+                    <p className="step-meta"><strong>Meta:</strong> conversação semanal + correção de erros recorrentes.</p>
                   </div>
                 </div>
 
                 <div className="step-card">
                   <div className="step-number">4</div>
                   <div className="step-body">
-                    <h4>Refino (B2 → C1+)</h4>
+                    <h4>C1+ (Refino)</h4>
                     <p>Nuance, vocabulário específico e compreensão avançada.</p>
-                    <p className="step-meta"><strong>Meta:</strong> textos/vídeos complexos + escrita com feedback.</p>
+                    <p className="step-meta"><strong>Meta:</strong> leitura/áudio complexos + escrita com feedback.</p>
                   </div>
                 </div>
               </div>
@@ -177,356 +248,249 @@ function EnglishGuide() {
                 <h4>Rotina mínima (45 min/dia)</h4>
                 <ul className="info-list">
                   <li><strong>10 min:</strong> Anki (revisões)</li>
-                  <li><strong>20 min:</strong> Input com suporte (vídeo + legenda em inglês + pausar e anotar)</li>
-                  <li><strong>15 min:</strong> Output (escrever/falar) usando o vocabulário do dia</li>
+                  <li><strong>20 min:</strong> Input com suporte</li>
+                  <li><strong>15 min:</strong> Output (escrever/falar)</li>
                 </ul>
               </div>
             </div>
           </section>
 
           <section id="anki" className="info-section">
-            <h2 className="section-title">🔄 Repetição Espaçada com Anki</h2>
+            <h2 className="section-title">🔄 Repetição Espaçada (Anki)</h2>
             <div className="info-card">
-              <h3>O que é Anki?</h3>
+              <h3>Use para não esquecer</h3>
               <p>
-                Anki é um software de flashcards que usa repetição espaçada para otimizar sua memorização. 
-                Ele mostra as palavras que você está esquecendo com mais frequência, maximizando o aprendizado.
+                O Anki mostra os cards exatamente quando você vai esquecer. Isso economiza tempo e fixa o vocabulário.
               </p>
-              
-              <div className="highlight-box">
-                <h4>Como usar Anki efetivamente:</h4>
-                <ul className="info-list">
-                  <li><strong>Crie cards diariamente:</strong> Adicione 10-20 novas palavras por dia</li>
-                  <li><strong>Revise todos os dias:</strong> O algoritmo funciona melhor com revisões consistentes</li>
-                  <li><strong>Use imagens e contexto:</strong> Cards com imagens são 40% mais eficazes</li>
-                  <li><strong>Adicione exemplos:</strong> Use frases completas ao invés de apenas traduções</li>
-                  <li><strong>Seja honesto:</strong> Marque "Difícil" quando realmente não souber</li>
-                </ul>
-              </div>
 
-              <div className="tip-box">
-                <strong>💡 Dica Pro:</strong> Estudos mostram que 15 minutos diários de Anki podem 
-                aumentar seu vocabulário em 1000 palavras em 3 meses. Consistência é a chave!
+              <div className="highlight-box">
+                <h4>Uso direto ao ponto</h4>
+                <ul className="info-list">
+                  <li><strong>10–20 novos cards/dia</strong> (frases curtas, não palavras soltas).</li>
+                  <li><strong>Revisar todo dia</strong> (consistência &gt; quantidade).</li>
+                  <li><strong>Fonte dos cards:</strong> o que você assistiu/leu.</li>
+                </ul>
               </div>
             </div>
           </section>
 
+          <section id="vocabulario" className="info-section">
+            <h2 className="section-title">📚 Core Vocabulário e Níveis</h2>
+            <div className="info-card">
+              <h3>Frequência primeiro. Depois, especialize.</h3>
+              <p>
+                As palavras mais frequentes aparecem o tempo todo. Domine o básico e você entende muito mais rápido.
+              </p>
+
+              <div className="vocab-grid">
+                <div className="vocab-category">
+                  <h4>Top 100 (base)</h4>
+                  <p>the, be, to, of, and, a, in, that, have, I, it, for, not, on, with, he, as, you, do, at...</p>
+                  <span className="vocab-priority">🔥 Prioridade Máxima</span>
+                </div>
+
+                <div className="vocab-category">
+                  <h4>101–500 (destrava)</h4>
+                  <p>Verbos comuns, adjetivos básicos, preposições, pronomes...</p>
+                  <span className="vocab-priority">⭐ Alta Prioridade</span>
+                </div>
+
+                <div className="vocab-category">
+                  <h4>501–1000 (consolida)</h4>
+                  <p>Vocabulário recorrente em situações do dia a dia.</p>
+                  <span className="vocab-priority">📖 Média Prioridade</span>
+                </div>
+              </div>
+
+              <div className="highlight-box">
+                <h4>Estimativas por nível (varia por pessoa)</h4>
+                <ul className="info-list">
+                  <li><strong>A1:</strong> 500–700 palavras</li>
+                  <li><strong>A2:</strong> 1000–1500 palavras</li>
+                  <li><strong>B1:</strong> 2000–3000 palavras</li>
+                  <li><strong>B2:</strong> 4000–5000 palavras</li>
+                  <li><strong>C1:</strong> 8000+ palavras</li>
+                  <li><strong>C2:</strong> 12000+ palavras</li>
+                </ul>
+                <p>Use isso como referência, não como regra rígida.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="imersao" className="info-section">
+            <h2 className="section-title">⏰ Exposição e horas necessárias</h2>
+            <div className="info-card">
+              <h3>Quanto tempo, em média, para cada nível</h3>
+              <p>
+                Estimativas do FSI (Foreign Service Institute). A variação depende da qualidade do estudo e constância.
+              </p>
+
+              <div className="hours-grid">
+                <div className="hours-card">
+                  <div className="hours-level">A1 - Iniciante</div>
+                  <div className="hours-number">60–100 horas</div>
+                  <p>Frases básicas e apresentações simples</p>
+                </div>
+
+                <div className="hours-card">
+                  <div className="hours-level">A2 - Básico</div>
+                  <div className="hours-number">180–200 horas</div>
+                  <p>Conversas sobre temas familiares</p>
+                </div>
+
+                <div className="hours-card">
+                  <div className="hours-level">B1 - Intermediário</div>
+                  <div className="hours-number">350–400 horas</div>
+                  <p>Situações do dia a dia com autonomia</p>
+                </div>
+
+                <div className="hours-card">
+                  <div className="hours-level">B2 - Intermediário Superior</div>
+                  <div className="hours-number">500–600 horas</div>
+                  <p>Textos mais complexos e conversas fluidas</p>
+                </div>
+
+                <div className="hours-card">
+                  <div className="hours-level">C1 - Avançado</div>
+                  <div className="hours-number">700–800 horas</div>
+                  <p>Uso flexível e eficaz</p>
+                </div>
+
+                <div className="hours-card">
+                  <div className="hours-level">C2 - Fluente</div>
+                  <div className="hours-number">1000–1200 horas</div>
+                  <p>Domínio amplo e natural</p>
+                </div>
+              </div>
+
+              <div className="highlight-box">
+                <h4>📊 Cálculo prático</h4>
+                <ul className="info-list">
+                  <li><strong>1 hora/dia:</strong> A1 em 2–3 meses | B1 em ~1 ano | C1 em ~2 anos</li>
+                  <li><strong>2 horas/dia:</strong> A1 em ~1 mês | B1 em ~6 meses | C1 em ~1 ano</li>
+                  <li><strong>3 horas/dia:</strong> A1 em ~3 semanas | B1 em ~4 meses | C1 em ~8 meses</li>
+                </ul>
+              </div>
+
+              <div className="tip-box">
+                <strong>💡 Regra de ouro:</strong> 30 minutos focados valem mais que 2 horas distraído.
+              </div>
+            </div>
+          </section>
           <section id="curva" className="info-section">
             <h2 className="section-title">📈 Curva de Aprendizado</h2>
             <div className="info-card">
-              <h3>Entendendo o Processo de Aprendizado</h3>
+              <h3>É normal sentir o ritmo mudar</h3>
               <p>
-                O aprendizado de idiomas segue uma curva específica. Entender isso ajuda a manter 
-                a motivação e estabelecer expectativas realistas.
+                A curva não é linear. Entender isso evita frustração e te mantém consistente.
               </p>
-              
+
               <div className="learning-curve">
                 <div className="curve-item">
                   <div className="curve-phase">
-                    <h4>Fase 1: Início Rápido (0-3 meses)</h4>
-                    <p>Progresso visível e rápido. Você aprende o básico e sente grande evolução.</p>
+                    <h4>Fase 1: Início rápido (0–3 meses)</h4>
+                    <p>Você aprende o básico e vê evolução visível.</p>
                     <div className="progress-indicator">Progresso: 0% → 20%</div>
                   </div>
                 </div>
-                
+
                 <div className="curve-item">
                   <div className="curve-phase">
-                    <h4>Fase 2: Platô Intermediário (3-12 meses)</h4>
-                    <p>Progresso mais lento. Você entende muito mas ainda comete erros. É normal sentir estagnação.</p>
+                    <h4>Fase 2: Platô intermediário (3–12 meses)</h4>
+                    <p>O progresso fica mais lento, mas continua.</p>
                     <div className="progress-indicator">Progresso: 20% → 60%</div>
                   </div>
                 </div>
-                
+
                 <div className="curve-item">
                   <div className="curve-phase">
-                    <h4>Fase 3: Fluência (12+ meses)</h4>
-                    <p>Melhorias sutis mas consistentes. Você se comunica naturalmente e refinamento contínuo.</p>
+                    <h4>Fase 3: Fluência funcional (12+ meses)</h4>
+                    <p>Melhorias sutis e consistentes.</p>
                     <div className="progress-indicator">Progresso: 60% → 90%+</div>
                   </div>
                 </div>
               </div>
 
               <div className="tip-box">
-                <strong>⚠️ Importante:</strong> O platô intermediário é onde a maioria desiste. 
-                Continue praticando mesmo quando parecer que não está progredindo - você está!
-              </div>
-            </div>
-          </section>
-
-          <section id="vocabulario" className="info-section">
-            <h2 className="section-title">📚 Core Vocabulário</h2>
-            <div className="info-card">
-              <h3>As Palavras Mais Importantes</h3>
-              <p>
-                Pesquisas mostram que as 1000 palavras mais frequentes cobrem 80% das conversas do dia a dia. 
-                Foque nelas primeiro!
-              </p>
-              
-              <div className="vocab-grid">
-                <div className="vocab-category">
-                  <h4>Top 100 Palavras (Cobrem 50%)</h4>
-                  <p>the, be, to, of, and, a, in, that, have, I, it, for, not, on, with, he, as, you, do, at...</p>
-                  <span className="vocab-priority">🔥 Prioridade Máxima</span>
-                </div>
-                
-                <div className="vocab-category">
-                  <h4>Palavras 101-500 (Cobrem +25%)</h4>
-                  <p>Verbos comuns, adjetivos básicos, preposições, pronomes...</p>
-                  <span className="vocab-priority">⭐ Alta Prioridade</span>
-                </div>
-                
-                <div className="vocab-category">
-                  <h4>Palavras 501-1000 (Cobrem +5%)</h4>
-                  <p>Vocabulário específico de contextos, palavras menos comuns...</p>
-                  <span className="vocab-priority">📖 Média Prioridade</span>
-                </div>
-              </div>
-
-              <div className="highlight-box">
-                <h4>Estratégia Recomendada:</h4>
-                <ol className="action-list">
-                  <li>Domine as top 100 palavras primeiro (1-2 meses)</li>
-                  <li>Expanda para 500 palavras (3-4 meses)</li>
-                  <li>Complete até 1000 palavras (6-8 meses)</li>
-                  <li>Continue aprendendo vocabulário específico conforme necessidade</li>
-                </ol>
-              </div>
-            </div>
-          </section>
-
-          <section id="language-reactor" className="info-section">
-            <h2 className="section-title">🎬 Language Reactor e Extensões</h2>
-            <div className="info-card">
-              <h3>Assistir Conteúdo em Inglês com Suporte</h3>
-              <p>
-                Language Reactor é uma extensão revolucionária que transforma Netflix, YouTube e outras 
-                plataformas em ferramentas de aprendizado.
-              </p>
-              
-              <div className="tool-feature">
-                <h4>🔧 Language Reactor (Chrome/Edge)</h4>
-                <ul className="info-list">
-                  <li><strong>Legendas duplas:</strong> Inglês e português simultaneamente</li>
-                  <li><strong>Pausa automática:</strong> Pausa quando você clica em palavras desconhecidas</li>
-                  <li><strong>Tradução instantânea:</strong> Veja traduções ao passar o mouse</li>
-                  <li><strong>Repetição de frases:</strong> Reouça frases difíceis facilmente</li>
-                  <li><strong>Salve palavras:</strong> Crie flashcards diretamente do conteúdo</li>
-                </ul>
-              </div>
-
-              <div className="tools-grid">
-                <div className="tool-item">
-                  <h4>📺 Language Reactor</h4>
-                  <p>Extensão para Netflix, YouTube, Prime Video. Gratuita com versão premium disponível.</p>
-                  <span className="tool-tag">Recomendado</span>
-                </div>
-                
-                <div className="tool-item">
-                  <h4>📖 Readlang</h4>
-                  <p>Traduza palavras em qualquer site. Clique e veja traduções instantâneas.</p>
-                </div>
-                
-                <div className="tool-item">
-                  <h4>🎧 Language Learning with Netflix</h4>
-                  <p>Similar ao Language Reactor, focado especificamente no Netflix.</p>
-                </div>
-                
-                <div className="tool-item">
-                  <h4>📱 Toucan</h4>
-                  <p>Transforma palavras em sites para o idioma que você está aprendendo.</p>
-                </div>
-              </div>
-
-              <div className="tip-box">
-                <strong>💡 Como usar:</strong> Comece assistindo com legendas em português, depois mude 
-                para inglês, e finalmente tente sem legendas. Use Language Reactor para pausar e estudar 
-                palavras novas.
-              </div>
-            </div>
-          </section>
-
-          <section id="imersao" className="info-section">
-            <h2 className="section-title">⏰ Horas de Imersão Necessárias</h2>
-            <div className="info-card">
-              <h3>Quanto Tempo Você Precisa?</h3>
-              <p>
-                Pesquisas do FSI (Foreign Service Institute) mostram quantas horas são necessárias 
-                para alcançar diferentes níveis de proficiência.
-              </p>
-              
-              <div className="hours-grid">
-                <div className="hours-card">
-                  <div className="hours-level">A1 - Iniciante</div>
-                  <div className="hours-number">60-100 horas</div>
-                  <p>Compreende frases básicas e pode se apresentar</p>
-                </div>
-                
-                <div className="hours-card">
-                  <div className="hours-level">A2 - Básico</div>
-                  <div className="hours-number">180-200 horas</div>
-                  <p>Consegue conversar sobre tópicos familiares</p>
-                </div>
-                
-                <div className="hours-card">
-                  <div className="hours-level">B1 - Intermediário</div>
-                  <div className="hours-number">350-400 horas</div>
-                  <p>Consegue lidar com situações do dia a dia</p>
-                </div>
-                
-                <div className="hours-card">
-                  <div className="hours-level">B2 - Intermediário Superior</div>
-                  <div className="hours-number">500-600 horas</div>
-                  <p>Consegue entender textos complexos e se expressar fluentemente</p>
-                </div>
-                
-                <div className="hours-card">
-                  <div className="hours-level">C1 - Avançado</div>
-                  <div className="hours-number">700-800 horas</div>
-                  <p>Usa o idioma de forma flexível e eficaz</p>
-                </div>
-                
-                <div className="hours-card">
-                  <div className="hours-level">C2 - Fluente</div>
-                  <div className="hours-number">1000-1200 horas</div>
-                  <p>Domínio completo, próximo a um falante nativo</p>
-                </div>
-              </div>
-
-              <div className="highlight-box">
-                <h4>📊 Cálculo Prático:</h4>
-                <ul className="info-list">
-                  <li><strong>1 hora/dia:</strong> A1 em 2-3 meses | B1 em 1 ano | C1 em 2 anos</li>
-                  <li><strong>2 horas/dia:</strong> A1 em 1 mês | B1 em 6 meses | C1 em 1 ano</li>
-                  <li><strong>3 horas/dia:</strong> A1 em 3 semanas | B1 em 4 meses | C1 em 8 meses</li>
-                </ul>
-              </div>
-
-              <div className="tip-box">
-                <strong>💡 Lembre-se:</strong> Qualidade importa mais que quantidade. 30 minutos de 
-                estudo focado é melhor que 2 horas distraído. Combine estudo ativo (exercícios) com 
-                imersão passiva (vídeos, música).
-              </div>
-            </div>
-          </section>
-
-          <section id="erros-comuns" className="info-section">
-            <h2 className="section-title">❌ Erros Comuns e Como Evitá-los</h2>
-            <div className="info-card">
-              <h3>Armadilhas do Aprendizado</h3>
-              
-              <div className="error-grid">
-                <div className="error-item">
-                  <h4>🚫 Tradução Literal</h4>
-                  <p><strong>Erro:</strong> "I have 20 years" (tradução direta do português)</p>
-                  <p><strong>Correto:</strong> "I am 20 years old" ou "I'm 20"</p>
-                  <p><strong>Solução:</strong> Aprenda frases completas, não apenas palavras isoladas</p>
-                </div>
-                
-                <div className="error-item">
-                  <h4>🚫 Pronúncia de "TH"</h4>
-                  <p><strong>Erro:</strong> Pronunciar "think" como "fink" ou "tink"</p>
-                  <p><strong>Correto:</strong> Língua entre os dentes, sopro suave</p>
-                  <p><strong>Solução:</strong> Pratique com vídeos de pronúncia e repita em voz alta</p>
-                </div>
-                
-                <div className="error-item">
-                  <h4>🚫 Uso de Artigos</h4>
-                  <p><strong>Erro:</strong> "I go to the school" (quando não é específico)</p>
-                  <p><strong>Correto:</strong> "I go to school" (atividade geral)</p>
-                  <p><strong>Solução:</strong> Estude regras de artigos e pratique com exemplos</p>
-                </div>
-                
-                <div className="error-item">
-                  <h4>🚫 Present Perfect vs Simple Past</h4>
-                  <p><strong>Erro:</strong> "I did it yesterday" quando deveria ser "I have done it"</p>
-                  <p><strong>Correto:</strong> Present Perfect para ações com relevância no presente</p>
-                  <p><strong>Solução:</strong> Entenda o conceito, não apenas memorize regras</p>
-                </div>
-                
-                <div className="error-item">
-                  <h4>🚫 Pronúncia de Vogais</h4>
-                  <p><strong>Erro:</strong> "beach" vs "bitch", "sheet" vs "shit"</p>
-                  <p><strong>Correto:</strong> Preste atenção no som longo vs curto das vogais</p>
-                  <p><strong>Solução:</strong> Use dicionários com áudio e repita várias vezes</p>
-                </div>
-                
-                <div className="error-item">
-                  <h4>🚫 False Friends</h4>
-                  <p><strong>Erro:</strong> "Actually" não significa "atualmente"</p>
-                  <p><strong>Correto:</strong> "Actually" = "na verdade" | "Currently" = "atualmente"</p>
-                  <p><strong>Solução:</strong> Crie uma lista de false friends e revise regularmente</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="estrategias" className="info-section">
-            <h2 className="section-title">🎯 Estratégias de Estudo Eficazes</h2>
-            <div className="info-card">
-              <h3>Métodos Comprovados</h3>
-              
-              <div className="strategy-grid">
-                <div className="strategy-item">
-                  <h4>📝 Active Recall</h4>
-                  <p>Tente lembrar antes de olhar a resposta. Teste-se constantemente ao invés de apenas reler.</p>
-                  <span className="strategy-tag">Eficácia: 90%</span>
-                </div>
-                
-                <div className="strategy-item">
-                  <h4>🔄 Spaced Repetition</h4>
-                  <p>Revise material em intervalos crescentes. O cérebro retém melhor com pausas entre estudos.</p>
-                  <span className="strategy-tag">Eficácia: 85%</span>
-                </div>
-                
-                <div className="strategy-item">
-                  <h4>🎯 Interleaving</h4>
-                  <p>Misture diferentes tópicos ao invés de estudar um só por vez. Melhora transferência de conhecimento.</p>
-                  <span className="strategy-tag">Eficácia: 80%</span>
-                </div>
-                
-                <div className="strategy-item">
-                  <h4>🗣️ Output Practice</h4>
-                  <p>Fale e escreva, não apenas leia e ouça. Produzir é mais difícil mas mais eficaz.</p>
-                  <span className="strategy-tag">Eficácia: 75%</span>
-                </div>
+                <strong>⚠️ Importante:</strong> O platô é normal. Continue a rotina e ajuste o input.
               </div>
             </div>
           </section>
 
           <section id="recursos" className="info-section">
-            <h2 className="section-title">📱 Recursos recomendados</h2>
+            <h2 className="section-title">🔗 Ferramentas úteis (com links)</h2>
             <div className="info-card">
               <div className="tools-grid">
                 <div className="tool-item">
                   <h4>🔄 Anki</h4>
-                  <p>Flashcards com repetição espaçada. Gratuito e open-source. Disponível em todas as plataformas.</p>
+                  <p>
+                    Flashcards com repetição espaçada.{" "}
+                    <a href="https://apps.ankiweb.net/" target="_blank" rel="noreferrer">
+                      apps.ankiweb.net
+                    </a>
+                  </p>
                   <span className="tool-tag">Essencial</span>
                 </div>
-                
+
                 <div className="tool-item">
                   <h4>📚 Language Reactor</h4>
-                  <p>Extensão para aprender com Netflix/YouTube. Legendas interativas e traduções.</p>
+                  <p>
+                    Extensão para Netflix/YouTube.{" "}
+                    <a href="https://www.languagereactor.com/" target="_blank" rel="noreferrer">
+                      languagereactor.com
+                    </a>
+                  </p>
                   <span className="tool-tag">Recomendado</span>
                 </div>
-                
+
                 <div className="tool-item">
-                  <h4>🎧 Spotify Podcasts</h4>
-                  <p>"6 Minute English", "The English We Speak" (BBC). Ouça durante exercícios ou deslocamento.</p>
+                  <h4>🎧 BBC Podcasts</h4>
+                  <p>
+                    "6 Minute English", "The English We Speak".{" "}
+                    <a href="https://www.bbc.co.uk/learningenglish" target="_blank" rel="noreferrer">
+                      bbc.co.uk/learningenglish
+                    </a>
+                  </p>
                 </div>
-                
+
                 <div className="tool-item">
                   <h4>📖 LingQ</h4>
-                  <p>Leia textos em inglês com suporte de tradução. Acompanha seu progresso de vocabulário.</p>
+                  <p>
+                    Leitura com suporte de tradução.{" "}
+                    <a href="https://www.lingq.com/" target="_blank" rel="noreferrer">
+                      lingq.com
+                    </a>
+                  </p>
                 </div>
-                
+
                 <div className="tool-item">
-                  <h4>💬 HelloTalk / Tandem</h4>
-                  <p>Converse com nativos. Pratique escrita e fala com correções em tempo real.</p>
+                  <h4>💬 HelloTalk</h4>
+                  <p>
+                    Conversa com nativos.{" "}
+                    <a href="https://www.hellotalk.com/" target="_blank" rel="noreferrer">
+                      hellotalk.com
+                    </a>
+                  </p>
                 </div>
-                
+
                 <div className="tool-item">
-                  <h4>🎬 YouTube Channels</h4>
-                  <p>English with Lucy, Learn English with Emma, EnglishClass101. Conteúdo gratuito de qualidade.</p>
+                  <h4>💬 Tandem</h4>
+                  <p>
+                    Troca de idiomas por chat/voz.{" "}
+                    <a href="https://www.tandem.net/" target="_blank" rel="noreferrer">
+                      tandem.net
+                    </a>
+                  </p>
+                </div>
+
+                <div className="tool-item">
+                  <h4>🎬 YouTube</h4>
+                  <p>
+                    English with Lucy, BBC Learning English.{" "}
+                    <a href="https://www.youtube.com/@bbclearningenglish" target="_blank" rel="noreferrer">
+                      youtube.com/@bbclearningenglish
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>

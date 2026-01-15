@@ -9,125 +9,150 @@ function TestEnglishLevel() {
   const [level, setLevel] = useState('')
 
   const questions = [
+    // A1 - Básico (1-5)
     {
       id: 1,
-      question: "What is your name?",
-      options: ["Qual é o seu nome?", "Como você está?", "Onde você mora?", "Que horas são?"],
-      correct: 0
+      question: "I ___ from Brazil.",
+      options: ["am", "is", "are", "be"],
+      correct: 0,
+      level: "A1"
     },
     {
       id: 2,
-      question: "How are you?",
-      options: ["Como você está?", "Onde você está?", "Quem é você?", "O que você faz?"],
-      correct: 0
+      question: "She ___ two brothers.",
+      options: ["have", "has", "having", "haves"],
+      correct: 1,
+      level: "A1"
     },
     {
       id: 3,
-      question: "Where do you live?",
-      options: ["Onde você trabalha?", "Onde você mora?", "Onde você estuda?", "Onde você vai?"],
-      correct: 1
+      question: "They ___ to work by bus.",
+      options: ["goes", "go", "going", "gone"],
+      correct: 1,
+      level: "A1"
     },
     {
       id: 4,
-      question: "I ___ a student.",
-      options: ["am", "is", "are", "be"],
-      correct: 0
+      question: "I need ___ umbrella.",
+      options: ["a", "an", "the", "—"],
+      correct: 1,
+      level: "A1"
     },
     {
       id: 5,
-      question: "She ___ to school every day.",
-      options: ["go", "goes", "going", "went"],
-      correct: 1
+      question: "He ___ like spicy food.",
+      options: ["don't", "doesn't", "isn't", "not"],
+      correct: 1,
+      level: "A1"
     },
+    // A2 - Elementar (6-10)
     {
       id: 6,
-      question: "What time ___ it?",
-      options: ["is", "are", "am", "be"],
-      correct: 0
+      question: "I ___ TV when she called.",
+      options: ["watched", "was watching", "watch", "am watching"],
+      correct: 1,
+      level: "A2"
     },
     {
       id: 7,
-      question: "I have ___ apple.",
-      options: ["a", "an", "the", "some"],
-      correct: 1
+      question: "This is ___ book I've ever read.",
+      options: ["good", "better", "the best", "most good"],
+      correct: 2,
+      level: "A2"
     },
     {
       id: 8,
-      question: "They ___ playing soccer.",
-      options: ["is", "am", "are", "be"],
-      correct: 2
+      question: "You ___ smoke here. It's forbidden.",
+      options: ["mustn't", "don't have to", "shouldn't", "couldn't"],
+      correct: 0,
+      level: "A2"
     },
     {
       id: 9,
-      question: "I ___ like coffee.",
-      options: ["don't", "doesn't", "isn't", "aren't"],
-      correct: 0
+      question: "I've lived here ___ 2015.",
+      options: ["for", "since", "from", "during"],
+      correct: 1,
+      level: "A2"
     },
     {
       id: 10,
-      question: "Can you ___ me?",
-      options: ["help", "helps", "helping", "helped"],
-      correct: 0
+      question: "She asked me ___ I was doing.",
+      options: ["what", "that", "if", "which"],
+      correct: 0,
+      level: "A2"
     },
+    // B1 - Intermediário (11-14)
     {
       id: 11,
-      question: "I ___ to the store yesterday.",
-      options: ["go", "goes", "went", "going"],
-      correct: 2
+      question: "If I ___ you, I would apologize.",
+      options: ["am", "was", "were", "be"],
+      correct: 2,
+      level: "B1"
     },
     {
       id: 12,
-      question: "She is ___ than me.",
-      options: ["tall", "taller", "tallest", "more tall"],
-      correct: 1
+      question: "The report ___ by tomorrow.",
+      options: ["will finish", "will be finished", "finishes", "is finishing"],
+      correct: 1,
+      level: "B1"
     },
     {
       id: 13,
-      question: "I have ___ finished my homework.",
-      options: ["yet", "already", "still", "just"],
-      correct: 1
+      question: "He denied ___ the money.",
+      options: ["to take", "taking", "take", "took"],
+      correct: 1,
+      level: "B1"
     },
     {
       id: 14,
-      question: "If I ___ rich, I would travel.",
-      options: ["am", "was", "were", "be"],
-      correct: 2
+      question: "I wish I ___ more time to study.",
+      options: ["have", "had", "would have", "having"],
+      correct: 1,
+      level: "B1"
     },
+    // B2 - Intermediário Superior (15-17)
     {
       id: 15,
-      question: "The book ___ by many people.",
-      options: ["read", "reads", "is read", "are read"],
-      correct: 2
+      question: "By the time we arrived, the movie ___.",
+      options: ["started", "has started", "had started", "was starting"],
+      correct: 2,
+      level: "B2"
     },
     {
       id: 16,
-      question: "I ___ studying for 3 hours.",
-      options: ["have been", "has been", "am", "was"],
-      correct: 0
+      question: "She ___ working here for 10 years next month.",
+      options: ["will be", "will have been", "is", "has been"],
+      correct: 1,
+      level: "B2"
     },
     {
       id: 17,
-      question: "She suggested ___ to the beach.",
-      options: ["go", "going", "to go", "went"],
-      correct: 1
+      question: "The project, ___ was delayed, is now complete.",
+      options: ["that", "which", "what", "who"],
+      correct: 1,
+      level: "B2"
     },
+    // C1 - Avançado (18-20)
     {
       id: 18,
-      question: "I wish I ___ speak French.",
-      options: ["can", "could", "will", "would"],
-      correct: 1
+      question: "Had I known about the traffic, I ___ earlier.",
+      options: ["would leave", "would have left", "left", "had left"],
+      correct: 1,
+      level: "C1"
     },
     {
       id: 19,
-      question: "By next year, I ___ graduated.",
-      options: ["will", "will have", "have", "had"],
-      correct: 1
+      question: "Not until he apologized ___ forgive him.",
+      options: ["she did", "did she", "she would", "would she"],
+      correct: 1,
+      level: "C1"
     },
     {
       id: 20,
-      question: "Not only ___ she sing, but she also dances.",
-      options: ["does", "do", "did", "will"],
-      correct: 0
+      question: "The evidence suggests that he ___ lying all along.",
+      options: ["must be", "must have been", "should be", "could be"],
+      correct: 1,
+      level: "C1"
     }
   ]
 
@@ -162,17 +187,35 @@ function TestEnglishLevel() {
     const percentage = (correctAnswers / questions.length) * 100
     
     if (percentage >= 90) {
-      setLevel('C2 - Proficient')
-    } else if (percentage >= 80) {
-      setLevel('C1 - Advanced')
-    } else if (percentage >= 70) {
-      setLevel('B2 - Upper Intermediate')
+      setLevel({
+        name: 'C1+ Avançado',
+        verdict: '🚀 Está na hora de fazer imersão!',
+        description: 'Você domina bem a gramática básica e intermediária. Agora o foco deve ser exposição massiva: séries, podcasts, conversas reais. A fluência vem com uso, não com mais estudo de regras.'
+      })
+    } else if (percentage >= 75) {
+      setLevel({
+        name: 'B2 Intermediário Superior',
+        verdict: '📈 Bom progresso, mas ainda precisa consolidar',
+        description: 'Você entende a maioria das estruturas, mas ainda erra em pontos importantes. Continue praticando com conteúdo real e revise os erros abaixo.'
+      })
     } else if (percentage >= 60) {
-      setLevel('B1 - Intermediate')
+      setLevel({
+        name: 'B1 Intermediário',
+        verdict: '⚠️ Precisa reforçar os conceitos',
+        description: 'Você tem uma base, mas ainda comete erros em estruturas comuns. Revise gramática básica (tempos verbais, artigos, preposições) e aumente a exposição ao idioma.'
+      })
     } else if (percentage >= 40) {
-      setLevel('A2 - Elementary')
+      setLevel({
+        name: 'A2 Básico',
+        verdict: '📚 Precisa melhorar os conceitos básicos',
+        description: 'Você ainda está construindo a base. Foque no core vocabulary (500-1000 palavras mais usadas) e nas estruturas mais frequentes antes de avançar.'
+      })
     } else {
-      setLevel('A1 - Beginner')
+      setLevel({
+        name: 'A1 Iniciante',
+        verdict: '🔄 Comece do básico',
+        description: 'Você precisa construir uma base sólida. Comece com as 100 palavras mais frequentes, frases prontas do dia a dia e muita repetição. Não pule etapas.'
+      })
     }
     
     setShowResult(true)
@@ -187,6 +230,8 @@ function TestEnglishLevel() {
   }
 
   if (showResult) {
+    const percentage = Math.round((score / questions.length) * 100)
+    
     return (
       <div className="test-page">
         <div className="container">
@@ -194,14 +239,45 @@ function TestEnglishLevel() {
             <h1 className="result-title">Resultado do Teste</h1>
             <div className="result-score">
               <div className="score-number">{score} / {questions.length}</div>
-              <div className="score-percentage">
-                {Math.round((score / questions.length) * 100)}%
-              </div>
+              <div className="score-percentage">{percentage}%</div>
             </div>
             <div className="result-level">
-              <h2>Seu Nível:</h2>
-              <div className="level-badge">{level}</div>
+              <div className="level-badge">{level.name}</div>
+              <div className="level-verdict">{level.verdict}</div>
+              <p className="level-description">{level.description}</p>
             </div>
+
+            <div className="answers-review">
+              <h3>Revisão das Respostas</h3>
+              <div className="answers-list">
+                {questions.map((q, index) => {
+                  const userAnswer = answers[index]
+                  const isCorrect = userAnswer === q.correct
+                  return (
+                    <div key={q.id} className={`answer-item ${isCorrect ? 'correct' : 'wrong'}`}>
+                      <div className="answer-question">
+                        <span className="answer-number">{index + 1}.</span> {q.question}
+                      </div>
+                      <div className="answer-details">
+                        <div className="your-answer">
+                          <span className="answer-label">Sua resposta:</span>
+                          <span className={isCorrect ? 'text-correct' : 'text-wrong'}>
+                            {userAnswer !== undefined ? q.options[userAnswer] : '(não respondida)'}
+                          </span>
+                        </div>
+                        {!isCorrect && (
+                          <div className="correct-answer">
+                            <span className="answer-label">Correta:</span>
+                            <span className="text-correct">{q.options[q.correct]}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+
             <button onClick={resetTest} className="btn-primary">
               Fazer Teste Novamente
             </button>

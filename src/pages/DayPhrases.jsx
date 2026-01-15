@@ -49,35 +49,71 @@ function DayPhrases() {
     }
   }
 
-  // Carregar progresso salvo
+  // Carregar progresso salvo (só se as frases corresponderem)
   useEffect(() => {
+    if (phrases.length === 0) return
+    
+    const savedDate = localStorage.getItem('dayPhrasesDate')
+    const today = new Date().toISOString().split('T')[0]
+    
+    // Se for um dia diferente, limpa o progresso
+    if (savedDate !== today) {
+      localStorage.removeItem('dayPhrasesAnswers')
+      localStorage.removeItem('dayPhrasesShown')
+      localStorage.removeItem('dayPhrasesProgress')
+      localStorage.setItem('dayPhrasesDate', today)
+      return
+    }
+    
     const savedAnswers = localStorage.getItem('dayPhrasesAnswers')
     const savedShown = localStorage.getItem('dayPhrasesShown')
     const savedCompleted = localStorage.getItem('dayPhrasesProgress')
     
+    const phraseIds = phrases.map(p => p.id)
+    
     if (savedAnswers) {
-      setUserAnswers(JSON.parse(savedAnswers))
+      const parsed = JSON.parse(savedAnswers)
+      const filtered = Object.fromEntries(
+        Object.entries(parsed).filter(([id]) => phraseIds.includes(id))
+      )
+      setUserAnswers(filtered)
     }
     if (savedShown) {
-      setShowAnswers(JSON.parse(savedShown))
+      const parsed = JSON.parse(savedShown)
+      const filtered = Object.fromEntries(
+        Object.entries(parsed).filter(([id]) => phraseIds.includes(id))
+      )
+      setShowAnswers(filtered)
     }
     if (savedCompleted) {
-      setCompletedPhrases(JSON.parse(savedCompleted))
+      const parsed = JSON.parse(savedCompleted)
+      const filtered = parsed.filter(id => phraseIds.includes(id))
+      setCompletedPhrases(filtered)
     }
-  }, [])
+  }, [phrases])
 
   // Salvar progresso
   useEffect(() => {
+    if (phrases.length === 0) return
     localStorage.setItem('dayPhrasesAnswers', JSON.stringify(userAnswers))
-  }, [userAnswers])
+  }, [userAnswers, phrases.length])
 
   useEffect(() => {
+    if (phrases.length === 0) return
     localStorage.setItem('dayPhrasesShown', JSON.stringify(showAnswers))
-  }, [showAnswers])
+  }, [showAnswers, phrases.length])
 
   useEffect(() => {
+    if (phrases.length === 0) return
     localStorage.setItem('dayPhrasesProgress', JSON.stringify(completedPhrases))
-  }, [completedPhrases])
+  }, [completedPhrases, phrases.length])
+
+  const handleUncheck = (phraseId) => {
+    const newShowAnswers = { ...showAnswers }
+    delete newShowAnswers[phraseId]
+    setShowAnswers(newShowAnswers)
+    setCompletedPhrases(completedPhrases.filter(id => id !== phraseId))
+  }
 
   const handleCheckAnswer = async (phraseId) => {
     const userAnswer = userAnswers[phraseId] || ''
@@ -228,17 +264,23 @@ function DayPhrases() {
                   </div>
 
                   <div className="check-buttons">
-                    <button
-                      onClick={() => handleCheckAnswer(phrase.id)}
-                      className="btn-primary"
-                      disabled={showAnswer}
-                    >
-                      {showAnswer 
-                        ? '✓ Verificado' 
-                        : confirmingPhrases[phrase.id] 
-                        ? 'Tem certeza?' 
-                        : 'Verificar Resposta'}
-                    </button>
+                    {showAnswer ? (
+                      <button
+                        onClick={() => handleUncheck(phrase.id)}
+                        className="btn-secondary"
+                      >
+                        ✕ Desverificar
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleCheckAnswer(phrase.id)}
+                        className="btn-primary"
+                      >
+                        {confirmingPhrases[phrase.id] 
+                          ? 'Tem certeza?' 
+                          : 'Verificar Resposta'}
+                      </button>
+                    )}
                   </div>
 
                   {showAnswer && (

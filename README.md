@@ -2,18 +2,6 @@
 
 > Aplicação web serverless para aprendizado progressivo de inglês através de tradução e prática diária de frases estruturadas.
 
-## 📋 Índice
-
-- [Visão Geral](#visão-geral)
-- [Arquitetura](#arquitetura)
-- [Stack Tecnológico](#stack-tecnológico)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Funcionalidades](#funcionalidades)
-- [API e Backend](#api-e-backend)
-- [Configuração e Desenvolvimento](#configuração-e-desenvolvimento)
-- [Build e Deploy](#build-e-deploy)
-- [Gerenciamento de Estado](#gerenciamento-de-estado)
-- [Padrões e Convenções](#padrões-e-convenções)
 
 ## 🎯 Visão Geral
 

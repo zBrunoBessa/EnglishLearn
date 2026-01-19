@@ -88,12 +88,6 @@ A metodologia baseia-se na repetição espaçada e prática ativa: 20 frases di�
 | **AWS API Gateway** | REST API | Proxy HTTP, autenticação (opcional), rate limiting |
 | **AWS Amplify** | Hosting | CDN, SSL, CI/CD para frontend |
 
-### Ferramentas de Desenvolvimento
-
-- **@vitejs/plugin-react**: Plugin Vite para transformação JSX/TSX
-- **@types/react**: TypeScript definitions (dev dependency)
-
-
 
 ## ⚙️ Funcionalidades
 
@@ -106,17 +100,6 @@ A metodologia baseia-se na repetição espaçada e prática ativa: 20 frases di�
 - Tratamento de erros com retry manual
 - Persistência de progresso em `localStorage`
 
-**Features:**
-- **Input de Tradução**: Textarea para resposta do usuário
-- **Validação**: Exige resposta antes de mostrar correção
-- **Reveal Answer**: Mostra resposta correta e explicação gramatical
-- **Progress Tracking**: 
-  - Barra de progresso visual (0-100%)
-  - Checkbox para marcar frases como concluídas
-  - Persistência entre sessões (mesmo dia)
-  - Reset automático ao mudar de dia
-- **Completion Modal**: Modal de celebração ao completar todas as frases
-- **Keyboard Shortcuts**: Enter para confirmar resposta
 
 **Estrutura de Dados (API Response):**
 ```json

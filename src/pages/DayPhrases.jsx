@@ -242,8 +242,20 @@ function DayPhrases() {
           </div>
         </div>
 
-        <div className="phrases-hint">
-          Não traduza palavra por palavra, pense em como você diria essa expressão em inglês.
+        <div className="phrases-tips">
+          <div className="tip-highlight main-tip">
+            <span className="tip-icon">💡</span>
+            <span className="tip-text">
+              <strong>Não traduza palavra por palavra.</strong> Pense em como você diria essa expressão em inglês naturalmente.
+            </span>
+          </div>
+          <div className="tip-highlight secondary-tip">
+            <span className="tip-icon">📚</span>
+            <span className="tip-text">
+              Essas frases são essenciais para o seu dia a dia. <strong>Adicione ao Anki</strong> as que você errar, 
+              e foque em entender a <strong>estrutura</strong> de cada frase, não apenas decorar.
+            </span>
+          </div>
         </div>
 
         <div className="phrases-list">

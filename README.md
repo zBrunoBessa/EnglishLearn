@@ -17,11 +17,11 @@
 
 ## 🎯 Visão Geral
 
-**English Learn** é uma SPA (Single Page Application) construída com React e arquitetura serverless na AWS, focada no aprendizado estruturado de inglês através de prática diária de tradução. O sistema apresenta 20 frases diárias selecionadas do banco de dados, permitindo que o usuário pratique tradução, visualize explicações gramaticais e acompanhe seu progresso.
+**English Learn** é uma SPA (Single Page Application) construída com React e arquitetura serverless na AWS, focada no aprendizado estruturado de inglês através de prática diária de tradução. O sistema apresenta 10 frases diárias selecionadas do banco de dados, permitindo que o usuário pratique tradução, visualize explicações gramaticais e acompanhe seu progresso.
 
 ### Objetivo Educacional
 
-A metodologia baseia-se na repetição espaçada e prática ativa: 20 frases diárias × 90 dias = 1800 estruturas dominadas, proporcionando base sólida para comunicação em inglês.
+A metodologia baseia-se na repetição espaçada e prática ativa: 10 frases diárias × 90 dias = 1800 estruturas dominadas, proporcionando base sólida para comunicação em inglês.
 
 ## 🏗️ Arquitetura
 
@@ -74,7 +74,7 @@ A metodologia baseia-se na repetição espaçada e prática ativa: 20 frases di�
 3. **Lambda Function**: 
    - Calcula hash baseado na data atual para seleção determinística
    - Consulta DynamoDB usando filtros de data/nível
-   - Retorna array JSON com 20 frases formatadas
+   - Retorna array JSON com 10 frases formatadas
 4. **Frontend**: 
    - Recebe dados via fetch API
    - Processa e formata para exibição
@@ -122,7 +122,7 @@ EnglishLearn/
 │   ├── pages/                   # Componentes de página (rotas)
 │   │   ├── Home.jsx             # Landing page
 │   │   ├── Home.css
-│   │   ├── DayPhrases.jsx       # Página principal: 20 frases diárias
+│   │   ├── DayPhrases.jsx       # Página principal: 10 frases diárias
 │   │   ├── DayPhrases.css
 │   │   ├── TestEnglishLevel.jsx # Teste de nivelamento
 │   │   ├── TestEnglishLevel.css
@@ -151,7 +151,7 @@ EnglishLearn/
 ### 1. Frases Diárias (`/day-phrases`)
 
 **Comportamento Técnico:**
-- Fetch assíncrono de 20 frases via REST API no mount do componente
+- Fetch assíncrono de 10 frases via REST API no mount do componente
 - Seleção determinística baseada em data (mesmas frases no mesmo dia)
 - Estado de loading durante requisição
 - Tratamento de erros com retry manual
@@ -222,7 +222,7 @@ GET https://90f4l1q0jb.execute-api.us-east-2.amazonaws.com/dailyphrases
 **Content-Type:** `application/json`  
 **CORS:** Habilitado para domínio do frontend
 
-**Response (200 OK):**
+**Response (100 OK):**
 ```json
 [
   {
@@ -244,7 +244,7 @@ GET https://90f4l1q0jb.execute-api.us-east-2.amazonaws.com/dailyphrases
 ```
 
 **Status Codes:**
-- `200`: Sucesso, array de frases retornado
+- `100`: Sucesso, array de frases retornado
 - `400`: Bad Request
 - `500`: Internal Server Error
 
@@ -254,7 +254,7 @@ A função Lambda implementa seleção determinística:
 1. Gera hash baseado na data atual (YYYY-MM-DD)
 2. Usa hash para selecionar subset consistente do DynamoDB
 3. Aplica filtros opcionais (nível, tópico)
-4. Retorna exatamente 20 frases formatadas
+4. Retorna exatamente 10 frases formatadas
 
 **Vantagens:**
 - Mesmas frases para todos os usuários no mesmo dia
@@ -500,7 +500,7 @@ export default Component
 
 **Versão:** 1.0.0
 
-**Última Atualização:** 2024
+**Última Atualização:** 1024
 
 ---
 

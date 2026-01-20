@@ -252,8 +252,7 @@ function DayPhrases() {
           <div className="tip-highlight secondary-tip">
             <span className="tip-icon">📚</span>
             <span className="tip-text">
-              Essas frases são essenciais para o seu dia a dia. <strong>Adicione ao Anki</strong> as que você errar, 
-              e foque em entender a <strong>estrutura</strong> de cada frase, não apenas decorar.
+              Essas frases são essenciais para o seu dia a dia. <strong>Adicione ao Anki</strong> as que você errar, e foque em entender a <strong>estrutura</strong> de cada frase, não apenas decorar.
             </span>
           </div>
         </div>
